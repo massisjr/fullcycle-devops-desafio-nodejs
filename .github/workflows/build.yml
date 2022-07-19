@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: 16
 
+      - run: npm install
       - run: npm test      # Shallow clones should be disabled for a better relevancy of analysis
 
       - name: SonarCloud Scannner
