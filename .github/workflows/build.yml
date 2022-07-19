@@ -10,10 +10,19 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
+
       - name: Checking out source code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
+
+      - name: Setting up NodeJS environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: npm test      # Shallow clones should be disabled for a better relevancy of analysis
+
       - name: SonarCloud Scannner
         uses: SonarSource/sonarcloud-github-action@master
         env:
