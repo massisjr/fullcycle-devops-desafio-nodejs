@@ -6,8 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarcloud:
-    name: run-ci
+  run-ci:
     runs-on: ubuntu-latest
     steps:
 
@@ -20,7 +19,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - run: npm install
       - run: npm test      # Shallow clones should be disabled for a better relevancy of analysis
 
